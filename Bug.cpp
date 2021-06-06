@@ -7,7 +7,7 @@
 #include "Bug.h"
 #include "Map.h"
 
-#define STEP 2
+#define STEP 3
 /*-------------------------------------------------------------*/
 Bug *Bug::bugFactory(const cv::Point2i& init_pos, const cv::Point2i& target_pos, BugType bug_type)
 {
@@ -105,23 +105,23 @@ void DistBug::moveFreely( const Map &map )
 	double angle = M_1_PI * 180. * std::atan2( m_target_pos.y - m_cur_pos.y, m_target_pos.x - m_cur_pos.x );
 	if( 0 <= angle && angle < 22.5 ) {
 		m_pose = cv::Point2i( 1, 0 );
-	} else if( 22.5 <= angle && angle < 2*22.5 ) {
+	} else if( 22.5 <= angle && angle < 3*22.5 ) {
 		m_pose = cv::Point2i( 1, 1 );
-	} else if( 2*22.5 <= angle && angle < 3*22.5 ) {
+	} else if( 3*22.5 <= angle && angle < 5*22.5 ) {
 		m_pose = cv::Point2i( 0, 1 );
-	} else if( 3*22.5 <= angle && angle < 4*22.5 ) {
+	} else if( 5*22.5 <= angle && angle < 7*22.5 ) {
 		m_pose = cv::Point2i(-1,  1 );
-	} else if( 4*22.5 <= angle && angle <= 180 ) {
+	} else if( 7*22.5 <= angle && angle <= 180 ) {
 		m_pose = cv::Point2i( -1, 0 );
 	} else if( -180 <= angle && angle <= -180+22.5 ) {
 		m_pose = cv::Point2i( -1, 0 );
-	} else if( -180 + 22.5 <= angle && angle <= -180+ 2*22.5 ) {
+	} else if( -180 + 22.5 <= angle && angle <= -180+ 3*22.5 ) {
 		m_pose = cv::Point2i( -1,-1 );
-	} else if( -180 + 2*22.5 <= angle && angle <= -180+ 3*22.5 ) {
+	} else if( -180 + 3*22.5 <= angle && angle <= -180+ 5*22.5 ) {
 		m_pose = cv::Point2i( 0,-1 );
-	} else if( -180 + 3*22.5 <= angle && angle <= -180+ 4*22.5 ) {
+	} else if( -180 + 5*22.5 <= angle && angle <= -180+ 7*22.5 ) {
 		m_pose = cv::Point2i( 1,-1 );
-	} else if( -180 + 4*22.5 <= angle && angle <= 0 ) {
+	} else if( -180 + 7*22.5 <= angle && angle <= 0 ) {
 		m_pose = cv::Point2i( 1, 0 );
 	}
 

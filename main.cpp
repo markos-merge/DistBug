@@ -5,11 +5,13 @@
 
 int main()
 {
-	const char *filename = "./assets/obstacles3.jpg";
+	const char *filename = "./assets/obstacles4.jpg";
 	Map map( filename );
 //	cv::Mat mat = map.getMat().clone();
 	cv::Mat mat = cv::imread( filename );
-	DistBug bug( cv::Point2i( 2, 2 ), cv::Point2i( 456, 197 ) );
+//	DistBug bug( cv::Point2i( 2, 2 ), cv::Point2i( 456, 197 ) );
+//	DistBug bug( cv::Point2i( 2, 2 ), cv::Point2i( 510, 510 ) );
+	DistBug bug( cv::Point2i( 2, 2 ), cv::Point2i( 101, 232 ) );
 
 	auto cur_point = bug.getCurPos();
 	std::cout << cur_point << " " << bug.getStateString() << std::endl;

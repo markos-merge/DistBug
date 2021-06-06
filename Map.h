@@ -10,9 +10,9 @@
 
 class Map {
 public:
-	Map(const char *filename );
-	int getColor( const cv::Point2i &ij ) const;
-	const std::vector< cv::Point2i > &getObstaclesPoints() const ;
+	explicit Map(const char *filename );
+	[[nodiscard]] int getColor( const cv::Point2i &ij ) const;
+	[[nodiscard]] const std::vector< cv::Point2i > &getObstaclesPoints() const ;
 	const cv::Mat &getMat();
 private:
 	cv::Mat m_img;
